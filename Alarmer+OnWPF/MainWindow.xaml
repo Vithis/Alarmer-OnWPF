@@ -1,0 +1,97 @@
+﻿<Window x:Class="Alarmer_OnWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Alarmer_OnWPF"
+        xmlns:window="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        mc:Ignorable="d"
+        Title=" Alarmer+" Height="450" Width="800" Loaded="Window_Loaded" Background="#767676" >
+    <Border Padding="10"   BorderThickness="10" Background="#2B2B2B">
+        <StackPanel>
+            <!--currentDateLabel-->
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="currentDateLabel" Content="Date now" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontFamily="SeogeUI" FontSize="30" Foreground="White"
+                   FontWeight="Medium" Grid.Column="0" />
+                <Label x:Name="currentDateLabel1" Content="Time now" VerticalAlignment="Center"
+                   HorizontalAlignment="Right" FontFamily="SeogeUI" FontSize="33" Foreground="White"
+                   FontWeight="Medium" Grid.Column="1" />
+                <Label x:Name="currentDateLabel2" Content="s" VerticalAlignment="Center"
+                   HorizontalAlignment="Left" FontFamily="SeogeUI" FontSize="25" Foreground="White"
+                   FontWeight="Medium" Grid.Column="2" Margin="-9,5,0,0" />
+            </Grid>
+            <Label Background="#767676" Margin="-10 0 -10 0" />
+            <!--Status-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="*"/>
+                    <ColumnDefinition Width ="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Status:" VerticalAlignment="Center"
+                   HorizontalAlignment="Right" FontFamily="SeogeUI" FontSize="30" Foreground="White"
+                   FontWeight="Light" Grid.Column="0"/>
+
+                <Label x:Name="statusLabel" Content="Not started" VerticalAlignment="Center"
+                   HorizontalAlignment="Left" FontFamily="SeogeUI" FontSize="30" Foreground="#eee"
+                   FontWeight="Light" Grid.Column="1"/>
+            </Grid>
+            <Label Background="#767676" Margin="-10 0 -10 0" />
+            <!--DateTimePicker-->
+            <Grid Margin="10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.75*"/>
+                    <ColumnDefinition Width="0.80*"/>
+                    <ColumnDefinition Width="0.70*"/>
+                </Grid.ColumnDefinitions>
+
+                <window:WindowsFormsHost FontSize="35" Padding="2" Grid.Column="2">
+                    <wf:DateTimePicker Format="Time"  x:Name="timePicker" ></wf:DateTimePicker>
+                </window:WindowsFormsHost>
+                
+                <ComboBox VerticalAlignment="Bottom"  FontSize="19" x:Name="shortTimerSelect" Margin="0 10 25 10" Padding="2" SelectedIndex="0" Grid.Column="1">
+                    <ComboBoxItem>Select a timer</ComboBoxItem>
+                    <ComboBoxItem>5 min</ComboBoxItem>
+                    <ComboBoxItem>10 min</ComboBoxItem>
+                    <ComboBoxItem>15 min</ComboBoxItem>
+                    <ComboBoxItem>20 min</ComboBoxItem>
+                    <ComboBoxItem>25 min</ComboBoxItem>
+                    <ComboBoxItem>30 min</ComboBoxItem>
+                    <ComboBoxItem>35 min</ComboBoxItem>
+                    <ComboBoxItem>40 min</ComboBoxItem>
+                    <ComboBoxItem>45 min</ComboBoxItem>
+                    <ComboBoxItem>50 min</ComboBoxItem>
+                    <ComboBoxItem>55 min</ComboBoxItem>
+                    <ComboBoxItem>1 hour</ComboBoxItem>
+
+                </ComboBox>
+                <Label VerticalAlignment="Top"  Content="Timer" FontSize="19" Grid.Column="1" Foreground="White"/>
+                <Label x:Name="timeLeftLabel" Margin="10" Content="Time left: 00:00:00" FontSize="35" Grid.Column="0" Foreground="White"/>
+            </Grid>
+
+            <!--Buttons-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="startButton" Margin="10 10 10 0" Grid.Column="0" Content="start" Height="50"
+                        FontSize="20" FontWeight="Bold" Foreground="White" Background="#F7630C" Click="startButton_Click" Template="{DynamicResource noGlow}"/>
+                <Button x:Name="stopButton" Margin="10 10 10 0" Grid.Column="1" Content="stop" Height="50" 
+                        FontSize="20" FontWeight="Bold" Foreground="White" Background="#A80000" Click="stopButton_Click" Template="{DynamicResource noGlowers}"/>
+            </Grid>
+
+        </StackPanel>
+    </Border>
+</Window>
